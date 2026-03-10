@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimento Pele de Avelã</title>
+    <style>
+        /* Configuração Geral */
+        body {
+            background-color: #fdf5e6;
+            color: #4a3728;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container do Conteúdo Principal */
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            flex: 1; /* Faz o conteúdo crescer e empurrar o rodapé para o fim */
+        }
+
+        /* Títulos */
+        h1 {
+            color: #cd7f32;
+            font-size: 3rem;
+            margin-top: 40px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 5px;
+            color: #8c5a3c;
+        }
+
+        /* Imagem Responsiva */
+        .imagem-placeholder {
+            margin: 30px auto;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .imagem-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Botão Principal */
+        .botao {
+            display: inline-block;
+            background-color: #cd7f32;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #8c5a3c;
+        }
+
+        /* RODAPÉ FORÇADO (FORA DO CONTAINER) */
+        .rodape {
+            background-color: #3d2b1f !important; /* Marrom Profundo */
+            color: #f4ece4 !important;            /* Texto Creme */
+            padding: 40px 20px;
+            margin-top: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+        }
+
+        .rodape-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rodape-container h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            color: #cd7f32 !important; /* Dourado/Bronze */
+        }
+
+        .redes-sociais {
+            margin: 15px 0;
+        }
+
+        .redes-sociais a {
+            color: #f4ece4 !important;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .redes-sociais a:hover {
+            opacity: 0.7;
+        }
+
+        .divisor-rodape {
+            border: 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 15px auto;
+            width: 50px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        /* Ajuste para Celular */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .botao { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+   <div class="container">
+        <h1>Movimento Pele de Avelã</h1>
+        <p class="subtitulo">Sua beleza em evidência</p>
+        
+    <div class="imagem-placeholder"> 
+    <img src="imagem/banner1.jpg" alt="Pele de Avelã"> 
+</div>
+
+        <a href="https://forms.gle/ewYtfxLCA8KxvFUs8" class="botao" target="_blank">
+            QUERO CONHECER O CONCEITO
+        </a>
+    </div>
+
+  <footer class="rodape">
+    <div class="rodape-container">
+        <img src="imagem/logo_rodape.png" alt="Logo Pele de Avelã" class="logo-limpo">
+        
+        <p>Valorizando a beleza e o conceito natural.</p>
+        
+        <div class="redes-sociais">
+    <a href="https://www.instagram.com/peledeavela" target="_blank">@peledeavela</a>
+    
+    <a href="mailto:peledeavela@gmail.com">peledeavela@gmail.com</a>
+</div>
+        
+        <hr class="divisor-rodape">
+        <p class="copyright">&copy; 2026 Movimento Pele de Avelã. Todos os direitos reservados.</p>
+    </div>
+</footer>
