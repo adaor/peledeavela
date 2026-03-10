@@ -1,0 +1,156 @@
+.imagem-placeholder {
+    margin: 25px auto !important;
+    
+    /* AUMENTANDO UM POUCO O TAMANHO */
+    max-width: 160px !important; 
+    width: 160px !important; 
+    
+    border: 8px solid #fff !important; /* Ajustei a borda para acompanhar o tamanho */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.imagem-placeholder img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+.imagem-placeholder img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+.imagem-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    padding: 20px;
+    max-width: 80px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* Títulos */
+h1 {
+    color: #cd7f32;
+    font-size: 3rem;
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-top: 5px;
+    color: #8c5a3c;
+}
+
+/* Banner de Capa - Versão Compacta e Elegante */
+.imagem-placeholder {
+    margin: 25px auto;          /* Espaço equilibrado em cima e embaixo */
+    border: 10px solid #fff;    /* Moldura branca um pouco mais fina para não dominar a imagem */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra mais discreta */
+    border-radius: 4px;
+    overflow: hidden;
+    
+    /* DIMINUINDO O TAMANHO AQUI */
+    max-width: 220px;           /* Tamanho reduzido para um visual mais clean */
+    width: 50%;                 /* Ajuste para telas pequenas */
+}
+
+.imagem-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.imagem-placeholder img {
+    width: 100%;                /* A imagem preenche o container limitado acima */
+    height: auto;               /* Mantém a proporção */
+    display: block;             /* Remove espaços indesejados */
+}/* Botão Principal */
+.botao {
+    display: inline-block;
+    background-color: #cd7f32;
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.botao:hover {
+    background-color: #8c5a3c;
+}
+
+/* RODAPÉ ELEGANTE */
+.rodape {
+    background-color: #3d2b1f; /* Tom avelã profundo */
+    color: #f4ece4;
+    padding: 40px 20px;
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rodape-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo para o Logo do Rodapé (Ajustado para ficar menor) */
+.logo-limpo {
+    max-width: 100px;       /* Reduzi o tamanho para ficar mais delicado */
+    height: auto;           /* Mantém a proporção */
+    display: block;         /* Permite a centralização */
+    margin: 0 auto 15px;    /* Centraliza e dá espaço abaixo */
+    border: none !important;    /* Garante que não tenha borda */
+    box-shadow: none !important; /* Garante que não tenha sombra */
+    background: transparent !important; /* Garante fundo transparente */
+}
+
+.redes-sociais a {
+    color: #fff;               /* Deixa o texto branco para contrastar com o fundo escuro */
+    text-decoration: none;     /* Tira aquele sublinhado feio */
+    margin: 0 15px;            /* Dá um espaço entre o Instagram e o E-mail */
+    font-size: 14px;           /* Tamanho elegante */
+    transition: opacity 0.3s;  /* Efeito suave ao passar o mouse */
+}
+
+.redes-sociais a:hover {
+    opacity: 0.7;              /* Fica clarinho quando passa o mouse (efeito de clique) */
+}
+
+.redes-sociais a:hover {
+    color: #cd7f32;
+}
+
+.divisor-rodape {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 15px auto;
+    width: 50px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+
+/* Ajuste para Celular */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .botao { width: 80%; }
+}
