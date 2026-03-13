@@ -5,171 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movimento Pele de Avelã</title>
     <style>
-        /* Configuração Geral */
-        body {
-            background-color: #fdf5e6;
-            color: #4a3728;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            text-align: center;
+        /* --- ESTILO GERAL --- */
+        body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 90%; }
+        
+        h1 { color: #cd7f32; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 2.5rem; }
+        .subtitulo { font-style: italic; color: #8c5a3c; margin-bottom: 30px; }
+        
+        /* BANNER - Ajustado para 600px */
+        .imagem-placeholder { 
+            margin: 30px auto; 
+            border: 10px solid #fff; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+            border-radius: 8px; 
+            max-width: 600px; 
+            width: 100%; 
+            overflow: hidden; 
         }
+        .imagem-placeholder img { width: 100%; display: block; height: auto; }
 
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            flex: 1;
-        }
-
-        h1 {
-            color: #cd7f32;
-            font-size: 3rem;
-            margin-top: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .subtitulo {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #8c5a3c;
-            margin-bottom: 30px;
-        }
-
-        .imagem-placeholder {
-            margin: 30px auto;
-            border: 5px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .imagem-placeholder img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Estilo do Botão Principal e do Formulário */
-        .botao {
-            display: inline-block;
-            background-color: #cd7f32;
-            color: white !important;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 16px;
-        }
-
-        .botao:hover {
-            background-color: #8c5a3c;
-        }
-
-        /* Estilo do Card do Formulário */
-        .form-card {
-            margin-top: 50px;
-            padding: 40px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: left;
-            border: 1px solid #eee;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #4a3728;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
+        /* FORMULÁRIO - Agora branco e alinhado ao banner */
+        .form-card { 
+            max-width: 600px !important; 
+            width: 100% !important;
+            margin: 40px auto !important; 
+            background: #ffffff !important; 
+            padding: 30px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+            border: 1px solid #eee !important;
             box-sizing: border-box;
-            font-size: 16px;
+            text-align: left;
         }
 
-        /* Rodapé */
-        .rodape {
-            background-color: #3d2b1f;
-            color: #f4ece4;
-            padding: 40px 20px;
-            margin-top: 60px;
-            width: 100%;
+        /* Estilo dos campos internos */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #8c5a3c; }
+        .form-control { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 16px; 
         }
 
-        .redes-sociais a {
-            color: #f4ece4;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
+        /* BOTÃO ENVIAR - Tamanho proporcional */
+        .btn-enviar { 
+            background-color: #cd7f32; 
+            color: white !important; 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            border: none; 
+            cursor: pointer; 
+            width: auto; 
+            min-width: 180px;
+            font-size: 16px; 
+            display: block;
+            margin: 20px auto 0;
+            transition: 0.3s; 
         }
+        .btn-enviar:hover { background-color: #8c5a3c; }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .form-card { padding: 20px; }
-        }
+        /* Interação e Redes Sociais */
+        .interacao-secao { margin-top: 50px; padding: 30px; border-top: 1px solid #eee; }
+        .btn-like { background: #fff; border: 2px solid #cd7f32; color: #cd7f32; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-bottom: 30px; font-size: 16px; }
+        
+        .social-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-social { text-decoration: none; color: white !important; padding: 12px 25px; border-radius: 10px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        
+        .fb-color { background-color: #1877f2; }
+        .x-color  { background-color: #000; }
+        .wa-color { background-color: #25d366; min-width: 140px; }
+        
+        /* RODAPÉ */
+        .rodape { background-color: #3d2b1f; color: #f4ece4; padding: 60px 20px; margin-top: 60px; width: 100%; box-sizing: border-box; }
+        .logo-limpo { max-width: 150px; height: auto; margin: 0 auto 20px; display: block; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Movimento Pele de Avelã</h1>
-        <p class="subtitulo">Sua beleza em evidência</p>
+        <p class="subtitulo">Você bonita na foto</p>
         
         <div class="imagem-placeholder"> 
             <img src="imagem/banner1.jpg" alt="Pele de Avelã"> 
         </div>
 
         <div class="form-card">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="color: #4a3728;">Faça Parte</h2>
-                <p style="color: #8c5a3c; font-style: italic;">Deixe seus dados para conhecer o conceito</p>
-            </div>
-
-            <form action="https://formsubmit.co/peledeavela@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="https://adaor.github.io/peledeavela/">
-                <input type="hidden" name="_captcha" value="false">
-
-                <div class="input-group">
-                    <label>Seu Nome</label>
-                    <input type="text" name="nome" class="input-field" placeholder="Ex: Maria Silva" required>
+            <form>
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" class="form-control" placeholder="Digite seu nome">
                 </div>
-
-                <div class="input-group">
-                    <label>WhatsApp ou E-mail</label>
-                    <input type="text" name="contato" class="input-field" placeholder="(00) 00000-0000" required>
+                <div class="form-group">
+                    <label>Seu E-mail:</label>
+                    <input type="email" class="form-control" placeholder="nome@email.com">
                 </div>
-
-                <button type="submit" class="botao" style="width: 100%;">
-                    ENVIAR E CONHECER O CONCEITO
-                </button>
+                <button type="submit" class="btn-enviar">Enviar</button> 
             </form>
+        </div>
+
+        <div class="interacao-secao">
+            <button class="btn-like" onclick="this.innerHTML='❤️ Curtiu!'; this.style.background='#cd7f32'; this.style.color='white'">
+                🤍 Curtir Movimento
+            </button>
+            
+            <p style="color: #8c5a3c; font-weight: bold; font-size: 15px; margin-top: 20px; letter-spacing: 1px;">COMPARTILHE O CONCEITO:</p>
+            
+            <div class="social-grid">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://adaor.github.io/peledeavela/" target="_blank" class="btn-social fb-color">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://adaor.github.io/peledeavela/" target="_blank" class="btn-social x-color">X</a>
+                <a href="https://api.whatsapp.com/send?text=Conheça o Movimento Pele de Avelã: https://adaor.github.io/peledeavela/" target="_blank" class="btn-social wa-color">WhatsApp</a>
+            </div>
         </div>
     </div>
 
     <footer class="rodape">
+        <img src="imagem/logo_rodape.png" alt="Logo Pele de Avelã" class="logo-limpo">
         <p>Valorizando a beleza e o conceito natural.</p>
-        <div class="redes-sociais">
-            <a href="https://www.instagram.com/peledeavela" target="_blank">@peledeavela</a>
-            <a href="mailto:peledeavela@gmail.com">peledeavela@gmail.com</a>
-        </div>
-        <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 20px;">&copy; 2026 Movimento Pele de Avelã.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Movimento Pele de Avelã. Todos os direitos reservados.</p>
     </footer>
 
 </body>
