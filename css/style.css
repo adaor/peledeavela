@@ -1,1 +1,93 @@
+/* --- CONFIGURAÇÃO GERAL --- */
+body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; display: flex; flex-direction: column; min-height: 100vh; }
 
+.container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 90%; }
+
+h1 { color: #cd7f32; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 2.5rem; text-align: center; }
+.subtitulo { font-style: italic; color: #8c5a3c; margin-bottom: 30px; text-align: center; }
+
+/* --- BANNER E FORMULÁRIO (ALINHADOS) --- */
+.imagem-placeholder, .form-card {
+    max-width: 600px !important; 
+    width: 90% !important;
+    margin: 25px auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+.imagem-placeholder { border: 10px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; }
+.imagem-placeholder img { width: 100%; display: block; height: auto; }
+
+/* --- ESTILO DO FORMULÁRIO --- */
+.form-card { 
+    padding: 30px !important; 
+    background-color: #ffffff !important; 
+    border-radius: 20px !important; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; 
+    border: 1px solid #eee !important;
+    text-align: left;
+}
+
+.form-card label { color: #8c5a3c !important; font-weight: bold; display: block; margin-bottom: 8px; }
+
+.form-control {
+    width: 100% !important;
+    padding: 12px !important;
+    margin-bottom: 15px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    background-color: #f8f9fa !important;
+    box-sizing: border-box;
+}
+
+.form-card button {
+    width: auto !important;
+    min-width: 180px !important;
+    padding: 12px 30px !important;
+    font-size: 16px !important;
+    display: block !important;
+    margin: 20px auto !important;
+    background-color: #cd7f32 !important;
+    color: white !important;
+    border-radius: 50px !important;
+    border: none !important;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- PAINEL DE CANDIDATAS (O QUE VOCÊ QUERIA) --- */
+.galeria-candidatas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px;
+    margin: 50px auto;
+    max-width: 950px; 
+    padding: 20px;
+}
+
+.card-candidata {
+    background: #fff !important;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-candidata img { width: 100%; height: 350px; object-fit: cover; display: block; }
+
+.info-candidata { padding: 20px; background: #fff !important; text-align: center; }
+.info-candidata h3 { margin: 0; font-size: 1.2rem; color: #4a3728; }
+
+.local-foto { font-size: 0.85rem !important; color: #cd7f32 !important; font-weight: bold; margin: 8px 0 !important; text-transform: uppercase; }
+
+.divisor-card { border: 0; border-top: 1px solid #f2f2f2; margin: 12px auto; width: 40%; }
+
+.bio-modelo { font-size: 0.9rem !important; color: #666 !important; line-height: 1.5; font-style: italic; }
+
+/* --- RODAPÉ --- */
+.rodape { background-color: #3d2b1f; color: #f4ece4; padding: 60px 20px; text-align: center; margin-top: 60px; width: 100%; box-sizing: border-box; }
+.logo-limpo { max-width: 150px; margin: 0 auto 20px; display: block; }
+.redes-sociais a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; }
