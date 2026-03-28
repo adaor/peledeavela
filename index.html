@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimento Pele de Avelã</title>
+    <style>
+        /* --- ESTILO GERAL --- */
+        body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 90%; }
+        
+        h1 { color: #cd7f32; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 2.5rem; }
+        .subtitulo { font-style: italic; color: #8c5a3c; margin-bottom: 30px; }
+        
+        /* BANNER - Ajustado para 600px */
+        .imagem-placeholder { 
+            margin: 30px auto; 
+            border: 10px solid #fff; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+            border-radius: 8px; 
+            max-width: 600px; 
+            width: 100%; 
+            overflow: hidden; 
+        }
+        .imagem-placeholder img { width: 100%; display: block; height: auto; }
+
+        /* FORMULÁRIO - Agora branco e alinhado ao banner */
+        .form-card { 
+            max-width: 600px !important; 
+            width: 100% !important;
+            margin: 40px auto !important; 
+            background: #ffffff !important; 
+            padding: 30px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+            border: 1px solid #eee !important;
+            box-sizing: border-box;
+            text-align: left;
+        }
+<h2 style="color: #cd7f32; margin-top: 50px;">Candidatas Selecionadas</h2>
+<p style="color: #8c5a3c;">Conheça os rostos que representam o conceito Pele de Avelã</p>
+
+<div class="galeria-candidatas">
+    
+    <div class="card-candidata">
+    <img src="imagem/candidata1.jpg" alt="Nome da Modelo">
+    
+    <div class="info-candidata">
+        <h3>Nome da Modelo</h3> <p class="local-foto">📍 Jardim Botânico, Curitiba</p> <hr class="divisor-card">
+        <p class="bio-modelo">"Acredito que a beleza real nasce da aceitação e do cuidado com a nossa essência natural."</p> </div>
+</div>
+
+</div>
+        /* Estilo dos campos internos */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #8c5a3c; }
+        .form-control { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 16px; 
+        }
+
+        /* BOTÃO ENVIAR - Tamanho proporcional */
+        .btn-enviar { 
+            background-color: #cd7f32; 
+            color: white !important; 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            border: none; 
+            cursor: pointer; 
+            width: auto; 
+            min-width: 180px;
+            font-size: 16px; 
+            display: block;
+            margin: 20px auto 0;
+            transition: 0.3s; 
+        }
+        .btn-enviar:hover { background-color: #8c5a3c; }
+
+        /* Interação e Redes Sociais */
+        .interacao-secao { margin-top: 50px; padding: 30px; border-top: 1px solid #eee; }
+        .btn-like { background: #fff; border: 2px solid #cd7f32; color: #cd7f32; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-bottom: 30px; font-size: 16px; }
+        
+        .social-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-social { text-decoration: none; color: white !important; padding: 12px 25px; border-radius: 10px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        
+        .fb-color { background-color: #1877f2; }
+        .x-color  { background-color: #000; }
+        .wa-color { background-color: #25d366; min-width: 140px; }
+        
+        /* RODAPÉ */
+        .rodape { background-color: #3d2b1f; color: #f4ece4; padding: 60px 20px; margin-top: 60px; width: 100%; box-sizing: border-box; }
+        .logo-limpo { max-width: 150px; height: auto; margin: 0 auto 20px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 style="color: #cd7f32; margin-top: 60px;">Candidatas Selecionadas</h2>
+<div class="galeria-candidatas">
+    
+    <div class="card-candidata">
+        <img src="imagem/candidata1.jpg" alt="Modelo 1">
+        <div class="info-candidata">
+            <h3>Nome da Modelo</h3>
+            <p class="local-foto">📍 Curitiba, PR</p>
+            <hr class="divisor-card">
+            <p class="bio-modelo">"Breve texto sobre a modelo escolhida pela curadoria."</p>
+        </div>
+    </div>
+
+</div>
+        <h1>Movimento Pele de Avelã</h1>
+        <p class="subtitulo">Você bonita na foto!</p>
+        
+        <div class="imagem-placeholder"> 
+            <img src="imagem/banner1.jpg" alt="Pele de Avelã"> 
+        </div>
+
+        <div class="form-card">
+            <form>
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" class="form-control" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Seu E-mail:</label>
+                    <input type="email" class="form-control" placeholder="nome@email.com">
+                </div>
+                <button type="submit" class="btn-enviar">Enviar</button> 
+            </form>
+        </div>
+
+        <div class="interacao-secao">
+            <button class="btn-like" onclick="this.innerHTML='❤️ Curtiu!'; this.style.background='#cd7f32'; this.style.color='white'">
+                🤍 Curtir Movimento
+            </button>
+            
+            <p style="color: #8c5a3c; font-weight: bold; font-size: 15px; margin-top: 20px; letter-spacing: 1px;">COMPARTILHE O CONCEITO:</p>
+            
+            <div class="social-grid">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://adaor.github.io/peledeavela/" target="_blank" class="btn-social fb-color">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://adaor.github.io/peledeavela/" target="_blank" class="btn-social x-color">X</a>
+                <a href="https://api.whatsapp.com/send?text=Conheça o Movimento Pele de Avelã: https://adaor.github.io/peledeavela/" target="_blank" class="btn-social wa-color">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <img src="imagem/logo_rodape.png" alt="Logo Pele de Avelã" class="logo-limpo">
+        <p>Valorizando a beleza e o conceito natural.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Movimento Pele de Avelã. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
