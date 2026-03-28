@@ -1,0 +1,80 @@
+/* --- CONFIGURAÇÃO GERAL --- */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* --- BANNER E FORMULÁRIO (AMBOS COM 500PX PARA ALINHAR) --- */
+.imagem-placeholder, .form-card {
+    max-width: 500px !important; /* Mude aqui se quiser maior ou menor, mas mantenha igual nos dois */
+    width: 90% !important;
+    margin: 25px auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+/* --- ESTILO ESPECÍFICO DO BANNER --- */
+.imagem-placeholder {
+    border: 8px solid #fff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}
+
+.imagem-placeholder img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* --- ESTILO ESPECÍFICO DO FORMULÁRIO (FUNDO BRANCO) --- */
+.form-card { 
+    padding: 30px !important; 
+    background-color: #ffffff !important; /* FORÇA O BRANCO E MATA O AMARELO */
+    border-radius: 20px !important; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; 
+    border: 1px solid #eee !important;
+    text-align: left;
+}
+
+/* --- FORÇAR TEXTO A APARECER (COR MARROM) --- */
+.form-card label, .form-card h2, .form-card p, .form-control {
+    color: #4a342a !important; 
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* --- CAMPOS DE ENTRADA --- */
+.form-control {
+    width: 100% !important;
+    padding: 12px !important;
+    margin-bottom: 15px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    background-color: #f8f9fa !important;
+}
+
+/* --- BOTÃO CENTRALIZADO E MENOR --- */
+.form-card button {
+    width: auto !important;
+    min-width: 180px !important;
+    padding: 10px 30px !important;
+    font-size: 15px !important;
+    display: block !important;
+    margin: 20px auto !important;
+    background-color: #cd7f32 !important;
+    color: white !important;
+    border-radius: 50px !important;
+    border: none !important;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- TÍTULOS E RODAPÉ --- */
+h1 { color: #cd7f32; font-size: 2.5rem; text-align: center; text-transform: uppercase; }
+.subtitulo { color: #8c5a3c; text-align: center; font-style: italic; }
+.rodape { background-color: #3d2b1f; color: #f4ece4; padding: 40px 20px; text-align: center; margin-top: 50px; }
+.logo-limpo { max-width: 80px; margin: 0 auto 10px; display: block; }
+.redes-sociais a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; }
