@@ -1,80 +1,186 @@
-/* --- CONFIGURAÇÃO GERAL --- */
-.container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    flex: 1;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimento Pele de Avelã</title>
+    <style>
+        /* --- ESTILO GERAL --- */
+        body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; display: flex; flex-direction: column; min-height: 100vh; padding-top: 70px; }
+        
+        .container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 90%; }
+        
+        /* MENU FIXO REVISADO */
+        .menu-navegacao { position: fixed; top: 0; width: 100%; background-color: #3d2b1f; display: flex; justify-content: space-around; align-items: center; padding: 15px 0; z-index: 9999; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .logo-menu { color: #f4ece4; font-weight: bold; letter-spacing: 1px; text-decoration: none; font-size: 1.1rem; }
+        .links-menu { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
+        .links-menu li { margin: 0 15px; }
+        .links-menu a { color: #f4ece4; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .links-menu a:hover { color: #cd7f32; }
+        .btn-inscreva { background-color: #cd7f32; padding: 8px 18px; border-radius: 20px; font-weight: bold; color: white !important; }
 
-/* --- BANNER E FORMULÁRIO (AMBOS COM 500PX PARA ALINHAR) --- */
-.imagem-placeholder, .form-card {
-    max-width: 500px !important; /* Mude aqui se quiser maior ou menor, mas mantenha igual nos dois */
-    width: 90% !important;
-    margin: 25px auto !important;
-    display: block !important;
-    box-sizing: border-box !important;
-}
+        h1 { color: #cd7f32; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 2.2rem; }
+        .subtitulo { font-style: italic; color: #8c5a3c; margin-bottom: 30px; font-size: 1.1rem; }
+        
+        /* CARROSSEL DE CANDIDATAS - AJUSTADO */
+        .galeria-container { width: 100%; overflow: hidden; margin: 40px 0; position: relative; border-radius: 15px; }
+        .carrossel-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        
+        .card-candidata { 
+            min-width: 300px; 
+            margin-right: 25px; 
+            background: #fff; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s;
+            text-align: left;
+            flex-shrink: 0; /* Garante que o card não "esmague" */
+        }
+        
+        /* Efeito de Travar e Destacar */
+        .card-candidata:hover { transform: scale(1.03); cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 
-/* --- ESTILO ESPECÍFICO DO BANNER --- */
-.imagem-placeholder {
-    border: 8px solid #fff !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-    border-radius: 4px !important;
-    overflow: hidden !important;
-}
+        .card-candidata img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .info-candidata { padding: 20px; }
+        .info-candidata h3 { margin: 0; color: #3d2b1f; font-size: 1.2rem; text-transform: uppercase; }
+        .local-foto { color: #cd7f32; font-size: 0.85rem; font-weight: bold; margin: 8px 0; display: block; }
+        .divisor-card { border: 0; border-top: 1px solid #eee; margin: 12px 0; }
+        .bio-modelo { font-size: 0.9rem; font-style: italic; color: #555; line-height: 1.5; margin: 0; }
 
-.imagem-placeholder img {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-}
+        /* BANNER E FORMULÁRIO */
+        .imagem-placeholder { margin: 40px auto; border: 10px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 8px; max-width: 600px; width: 100%; overflow: hidden; }
+        .imagem-placeholder img { width: 100%; display: block; }
 
-/* --- ESTILO ESPECÍFICO DO FORMULÁRIO (FUNDO BRANCO) --- */
-.form-card { 
-    padding: 30px !important; 
-    background-color: #ffffff !important; /* FORÇA O BRANCO E MATA O AMARELO */
-    border-radius: 20px !important; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; 
-    border: 1px solid #eee !important;
-    text-align: left;
-}
+        .form-card { max-width: 600px; width: 100%; margin: 40px auto; background: #ffffff; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; box-sizing: border-box; text-align: left; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #8c5a3c; font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; transition: 0.3s; }
+        .form-control:focus { border-color: #cd7f32; outline: none; box-shadow: 0 0 5px rgba(205,127,50,0.2); }
 
-/* --- FORÇAR TEXTO A APARECER (COR MARROM) --- */
-.form-card label, .form-card h2, .form-card p, .form-control {
-    color: #4a342a !important; 
-    display: block !important;
-    opacity: 1 !important;
-}
+        .btn-enviar { background-color: #cd7f32; color: white !important; padding: 15px 50px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; display: block; margin: 25px auto 0; transition: 0.3s; font-size: 1.1rem; }
+        .btn-enviar:hover { background-color: #3d2b1f; transform: translateY(-2px); }
 
-/* --- CAMPOS DE ENTRADA --- */
-.form-control {
-    width: 100% !important;
-    padding: 12px !important;
-    margin-bottom: 15px !important;
-    border: 1px solid #ccc !important;
-    border-radius: 8px !important;
-    background-color: #f8f9fa !important;
-}
+        /* RODAPÉ */
+        .rodape { background-color: #3d2b1f; color: #f4ece4; padding: 60px 20px; margin-top: 80px; width: 100%; box-sizing: border-box; }
+        .logo-limpo { max-width: 140px; height: auto; margin: 0 auto 20px; display: block; filter: brightness(1.2); }
+        
+        /* BOTÕES SOCIAIS */
+        .social-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .wa-color { background-color: #25d366; text-decoration: none; color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .wa-color:hover { transform: scale(1.05); background-color: #1ebd58; }
+    </style>
+</head>
+<body>
 
-/* --- BOTÃO CENTRALIZADO E MENOR --- */
-.form-card button {
-    width: auto !important;
-    min-width: 180px !important;
-    padding: 10px 30px !important;
-    font-size: 15px !important;
-    display: block !important;
-    margin: 20px auto !important;
-    background-color: #cd7f32 !important;
-    color: white !important;
-    border-radius: 50px !important;
-    border: none !important;
-    cursor: pointer;
-    font-weight: bold;
-}
+    <nav class="menu-navegacao">
+        <a href="#" class="logo-menu">PELE DE AVELÃ</a>
+        <ul class="links-menu">
+            <li><a href="#galeria">Candidatas</a></li>
+            <li><a href="#cadastro" class="btn-inscreva">Inscreva-se</a></li>
+        </ul>
+    </nav>
 
-/* --- TÍTULOS E RODAPÉ --- */
-h1 { color: #cd7f32; font-size: 2.5rem; text-align: center; text-transform: uppercase; }
-.subtitulo { color: #8c5a3c; text-align: center; font-style: italic; }
-.rodape { background-color: #3d2b1f; color: #f4ece4; padding: 40px 20px; text-align: center; margin-top: 50px; }
-.logo-limpo { max-width: 80px; margin: 0 auto 10px; display: block; }
-.redes-sociais a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; }
+    <div class="container">
+        <h1>Movimento Pele de Avelã</h1>
+        <p class="subtitulo">Você bonita na foto!</p>
+
+        <h2 id="galeria" style="color: #cd7f32; margin-top: 50px;">Candidatas Selecionadas</h2>
+        <p style="color: #8c5a3c; margin-bottom: 20px;">Curadoria BioDisposição: Beleza com Inteligência Alimentar</p>
+        
+        <div class="galeria-container">
+            <div class="carrossel-track">
+                <div class="card-candidata">
+                    <img src="imagem/candidata1.jpg" alt="Modelo 1">
+                    <div class="info-candidata">
+                        <h3>Nome da Modelo</h3>
+                        <span class="local-foto">📍 Curitiba, PR</span>
+                        <hr class="divisor-card">
+                        <p class="bio-modelo">"A beleza real nasce da aceitação e do cuidado com a nossa essência natural."</p>
+                    </div>
+                </div>
+                <div class="card-candidata">
+                    <img src="imagem/candidata2.jpg" alt="Modelo 2">
+                    <div class="info-candidata">
+                        <h3>Próxima Candidata</h3>
+                        <span class="local-foto">📍 Região Metropolitana</span>
+                        <hr class="divisor-card">
+                        <p class="bio-modelo">"Focada em saúde e bem-estar, representando o conceito de beleza consciente."</p>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div class="imagem-placeholder"> 
+            <img src="imagem/banner1.jpg" alt="Pele de Avelã"> 
+        </div>
+
+        <div id="cadastro" class="form-card">
+            <h3 style="text-align:center; color:#3d2b1f; margin-bottom:25px;">Faça parte do Movimento</h3>
+            <form>
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" class="form-control" placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label>Seu E-mail:</label>
+                    <input type="email" class="form-control" placeholder="nome@email.com">
+                </div>
+                <button type="submit" class="btn-enviar">Quero Participar</button> 
+            </form>
+        </div>
+
+        <div class="interacao-secao">
+            <button class="btn-like" onclick="this.innerHTML='❤️ Movimento Curtido!'; this.style.background='#cd7f32'; this.style.color='white'">
+                🤍 Curtir Conceito
+            </button>
+            <div class="social-grid">
+                <a href="https://api.whatsapp.com/send?text=Conheça o Movimento Pele de Avelã: https://adaor.github.io/peledeavela/" target="_blank" class="wa-color">Compartilhar no WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <img src="imagem/logo_rodape.jpg" alt="Logo Pele de Avelã" class="logo-limpo">
+        <p>Valorizando a beleza e o conceito natural.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 25px;">&copy; 2026 Movimento Pele de Avelã. <br> Inteligência Alimentar na prática.</p>
+    </footer>
+
+    <script>
+        const track = document.querySelector('.carrossel-track');
+        const cards = document.querySelectorAll('.card-candidata');
+        let index = 0;
+        let interval;
+
+        function mover() {
+            index++;
+            // Se chegou ao fim, volta para o primeiro
+            if (index >= cards.length) {
+                index = 0;
+            }
+            
+            // Calcula a largura real do card + a margem direita (25px definida no CSS)
+            const cardFullWidth = cards[0].offsetWidth + 25;
+            track.style.transform = `translateX(-${index * cardFullWidth}px)`;
+        }
+
+        function start() { 
+            // Só inicia o giro se houver mais de uma candidata
+            if (cards.length > 1) {
+                interval = setInterval(mover, 3500); 
+            }
+        }
+        
+        function stop() { clearInterval(interval); }
+
+        // Eventos para Travar (Mouse e Toque)
+        track.addEventListener('mouseenter', stop);
+        track.addEventListener('mouseleave', start);
+        track.addEventListener('touchstart', stop);
+        track.addEventListener('touchend', start);
+
+        // Inicia o motor
+        start();
+    </script>
+</body>
+</html>
