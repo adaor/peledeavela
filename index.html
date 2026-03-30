@@ -7,7 +7,7 @@
     <style>
         /* --- ESTILO GERAL --- */
         body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; display: flex; flex-direction: column; min-height: 100vh; padding-top: 70px; }
-        .container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 90%; }
+        .container { padding: 20px; max-width: 1000px; margin: 0 auto; flex: 1; width: 95%; }
         
         /* MENU FIXO */
         .menu-navegacao { position: fixed; top: 0; width: 100%; background-color: #3d2b1f; display: flex; justify-content: space-around; align-items: center; padding: 15px 0; z-index: 9999; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
@@ -21,32 +21,33 @@
         h1 { color: #cd7f32; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 2.2rem; }
         .subtitulo { font-style: italic; color: #8c5a3c; margin-bottom: 30px; font-size: 1.1rem; }
         
-        /* CARROSSEL */
+        /* CARROSSEL - REVISADO PARA RESPONSIVIDADE */
         .galeria-container { width: 100%; overflow: hidden; margin: 40px 0; position: relative; border-radius: 15px; }
-        .carrossel-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .carrossel-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); cursor: grab; }
         
-        .card-candidata { min-width: 300px; margin-right: 25px; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s; text-align: left; flex-shrink: 0; }
-        .card-candidata:hover { transform: scale(1.03); cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .card-candidata { min-width: 280px; max-width: 300px; margin-right: 25px; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s; text-align: left; flex-shrink: 0; }
+        .card-candidata:hover { transform: scale(1.02); cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 
         /* --- ÁREA DE DESTAQUE (LIGHTBOX) --- */
         .foto-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 10000; justify-content: center; align-items: center; cursor: zoom-out; }
-        .foto-overlay img { max-width: 90%; max-height: 80%; border: 5px solid #fff; border-radius: 10px; }
+        .foto-overlay img { max-width: 90%; max-height: 85%; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 
-        .card-candidata img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .card-candidata img { width: 100%; height: 400px; object-fit: cover; display: block; pointer-events: none; }
         .info-candidata { padding: 20px; }
-        .info-candidata h3 { margin: 0; color: #3d2b1f; font-size: 1.2rem; text-transform: uppercase; }
-        .local-foto { color: #cd7f32; font-size: 0.85rem; font-weight: bold; margin: 8px 0; display: block; }
+        .info-candidata h3 { margin: 0; color: #3d2b1f; font-size: 1.1rem; text-transform: uppercase; }
+        .local-foto { color: #cd7f32; font-size: 0.8rem; font-weight: bold; margin: 8px 0; display: block; }
         .divisor-card { border: 0; border-top: 1px solid #eee; margin: 12px 0; }
-        .bio-modelo { font-size: 0.9rem; font-style: italic; color: #555; line-height: 1.5; margin: 0; }
+        .bio-modelo { font-size: 0.85rem; font-style: italic; color: #555; line-height: 1.5; margin: 0; }
 
         /* BANNER E FORMULÁRIO */
-        .imagem-placeholder { margin: 40px auto; border: 10px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 8px; max-width: 600px; width: 100%; overflow: hidden; }
+        .imagem-placeholder { margin: 40px auto; border: 8px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 8px; max-width: 600px; width: 100%; overflow: hidden; }
         .imagem-placeholder img { width: 100%; display: block; }
 
         .form-card { max-width: 600px; width: 100%; margin: 40px auto; background: #ffffff; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; box-sizing: border-box; text-align: left; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #8c5a3c; font-size: 0.9rem; }
         .form-control { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; transition: 0.3s; }
+        .form-control:focus { border-color: #cd7f32; outline: none; box-shadow: 0 0 8px rgba(205,127,50,0.2); }
 
         .btn-enviar { background-color: #cd7f32; color: white !important; padding: 15px 50px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; display: block; margin: 25px auto 0; transition: 0.3s; font-size: 1.1rem; }
         .btn-enviar:hover { background-color: #3d2b1f; transform: translateY(-2px); }
@@ -54,6 +55,13 @@
         .rodape { background-color: #3d2b1f; color: #f4ece4; padding: 60px 20px; margin-top: 80px; width: 100%; box-sizing: border-box; }
         .logo-limpo { max-width: 140px; height: auto; margin: 0 auto 20px; display: block; filter: brightness(1.2); }
         .wa-color { background-color: #25d366; text-decoration: none; color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; margin-top: 15px; }
+        .wa-color:hover { background-color: #1ebd58; transform: scale(1.05); }
+
+        /* Ajuste para telas pequenas */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card-candidata { min-width: 260px; }
+        }
     </style>
 </head>
 <body>
@@ -78,7 +86,7 @@
         <p style="color: #8c5a3c; margin-bottom: 20px;">Curadoria BioDisposição: Beleza com Inteligência Alimentar</p>
         
         <div class="galeria-container">
-            <div class="carrossel-track">
+            <div class="carrossel-track" id="track">
                 
                 <div class="card-candidata">
                     <img src="imagem/candidata1.jpg" alt="Ana Paula Silva">
@@ -96,14 +104,17 @@
                 <div class="card-candidata">
                     <img src="imagem/candidata2.jpg" alt="Modelo 2">
                     <div class="info-candidata">
-                        <h3>PRÓXIMA CANDIDATA</h3>
+                        <h3>MODELO SELECIONADA</h3>
                         <span class="local-foto">📍 Região Metropolitana</span>
                         <hr class="divisor-card">
-                        <p class="bio-modelo">"Focada em saúde e bem-estar, representando o conceito de beleza consciente."</p>
+                        <p class="bio-modelo">
+                            <strong>Perfil:</strong> Bem-estar consciente<br>
+                            "Focada em saúde, representando o conceito de beleza real do Movimento."
+                        </p>
                     </div>
                 </div>
 
-            </div>
+                </div>
         </div>
 
         <div class="imagem-placeholder"> 
@@ -115,18 +126,18 @@
             <form>
                 <div class="form-group">
                     <label>Seu Nome:</label>
-                    <input type="text" class="form-control" placeholder="Digite seu nome completo">
+                    <input type="text" class="form-control" placeholder="Digite seu nome completo" required>
                 </div>
                 <div class="form-group">
                     <label>Seu E-mail:</label>
-                    <input type="email" class="form-control" placeholder="nome@email.com">
+                    <input type="email" class="form-control" placeholder="nome@email.com" required>
                 </div>
                 <button type="submit" class="btn-enviar">Quero Participar</button> 
             </form>
         </div>
 
         <div class="interacao-secao">
-            <button class="btn-like" style="background:#fff; border:2px solid #cd7f32; color:#cd7f32; padding:12px 30px; border-radius:50px; cursor:pointer; font-weight:bold;" onclick="this.innerHTML='❤️ Movimento Curtido!'; this.style.background='#cd7f32'; this.style.color='white'">
+            <button class="btn-like" style="background:#fff; border:2px solid #cd7f32; color:#cd7f32; padding:12px 30px; border-radius:50px; cursor:pointer; font-weight:bold; transition:0.3s;" onclick="this.innerHTML='❤️ Movimento Curtido!'; this.style.background='#cd7f32'; this.style.color='white'">
                 🤍 Curtir Conceito
             </button>
             <br>
@@ -141,7 +152,7 @@
     </footer>
 
     <script>
-        const track = document.querySelector('.carrossel-track');
+        const track = document.getElementById('track');
         const cards = document.querySelectorAll('.card-candidata');
         const overlay = document.getElementById('overlay');
         const fotoAmpliada = document.getElementById('foto-ampliada');
@@ -151,18 +162,24 @@
         function mover() {
             index++;
             if (index >= cards.length) index = 0;
-            const cardFullWidth = cards[0].offsetWidth + 25;
-            track.style.transform = `translateX(-${index * cardFullWidth}px)`;
+            const margin = 25; // Margem definida no CSS
+            const cardWidth = cards[0].offsetWidth + margin;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
         }
 
-        function start() { if (cards.length > 1) interval = setInterval(mover, 3500); }
+        function start() { 
+            if (cards.length > 1) {
+                interval = setInterval(mover, 3500); 
+            }
+        }
+        
         function stop() { clearInterval(interval); }
 
-        // ABRIR FOTO AO CLICAR
+        // ABRIR FOTO AO CLICAR (Usando delegação para ser mais eficiente)
         cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const srcOriginal = card.querySelector('img').src;
-                fotoAmpliada.src = srcOriginal;
+            card.addEventListener('click', (e) => {
+                const img = card.querySelector('img');
+                fotoAmpliada.src = img.src;
                 overlay.style.display = 'flex';
                 stop();
             });
@@ -173,10 +190,19 @@
             start();
         }
 
+        // PAUSAR NO MOUSE E NO TOQUE
         track.addEventListener('mouseenter', stop);
         track.addEventListener('mouseleave', start);
         track.addEventListener('touchstart', stop);
         track.addEventListener('touchend', start);
+
+        // INICIALIZAÇÃO
+        window.addEventListener('resize', () => {
+            // Ajusta a posição se a janela mudar de tamanho
+            const margin = 25;
+            const cardWidth = cards[0].offsetWidth + margin;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        });
 
         start();
     </script>
