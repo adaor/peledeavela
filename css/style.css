@@ -100,7 +100,22 @@
     <div class="container">
         <h1>Movimento Pele de Avelã</h1>
         <p class="subtitulo">Você bonita na foto!</p>
-
+<div class="card-candidata">
+    <img src="imagem/candidata1.jpg" alt="Modelo 1">
+    
+    <div class="info-candidata">
+        <h3>ANA PAULA SILVA</h3> 
+        
+        <span class="local-foto">📍 Curitiba, PR | 26 anos</span> 
+        
+        <hr class="divisor-card">
+        
+        <p class="bio-modelo">
+            <strong>Perfil:</strong> Natural & Orgânico<br>
+            "A BioDisposição mudou minha forma de ver a beleza através da alimentação."
+        </p>
+    </div>
+</div>
         <h2 id="galeria" style="color: #cd7f32; margin-top: 50px;">Candidatas Selecionadas</h2>
         <p style="color: #8c5a3c; margin-bottom: 20px;">Curadoria BioDisposição: Beleza com Inteligência Alimentar</p>
         
