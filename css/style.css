@@ -37,6 +37,22 @@
             text-align: left;
             flex-shrink: 0; /* Garante que o card não "esmague" */
         }
+/* --- ÁREA DE DESTAQUE (LIGHTBOX) --- */
+.foto-overlay {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+.foto-overlay img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
         
         /* Efeito de Travar e Destacar */
         .card-candidata:hover { transform: scale(1.03); cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
