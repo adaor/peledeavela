@@ -24,18 +24,16 @@
         .carrossel-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); align-items: flex-start; padding: 10px 0; }
         
         .card-candidata { min-width: 280px; max-width: 300px; margin-right: 25px; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s; text-align: left; flex-shrink: 0; }
-        .card-candidata:hover { transform: scale(1.02); cursor: pointer; }
-
-        /* LIGHTBOX */
-        .foto-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 10000; justify-content: center; align-items: center; cursor: zoom-out; }
-        .foto-overlay img { max-width: 90%; max-height: 85%; border: 4px solid #fff; border-radius: 8px; }
-
         .card-candidata img { width: 100%; height: 400px; object-fit: cover; display: block; }
         .info-candidata { padding: 20px; }
         .info-candidata h3 { margin: 0; color: #3d2b1f; font-size: 1.1rem; text-transform: uppercase; }
         .local-foto { color: #cd7f32; font-size: 0.8rem; font-weight: bold; margin: 8px 0; display: block; }
         .divisor-card { border: 0; border-top: 1px solid #eee; margin: 12px 0; }
         .bio-modelo { font-size: 0.85rem; font-style: italic; color: #555; line-height: 1.5; margin: 0; }
+
+        /* LIGHTBOX */
+        .foto-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 10000; justify-content: center; align-items: center; cursor: zoom-out; }
+        .foto-overlay img { max-width: 90%; max-height: 85%; border: 4px solid #fff; border-radius: 8px; }
 
         /* FORMULÁRIO */
         .form-card { max-width: 600px; width: 100%; margin: 40px auto; background: #ffffff; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; }
@@ -71,25 +69,10 @@
                 <p id="status-carregamento" style="color: #8c5a3c; padding: 20px; width: 100%;">Carregando talentos da BioDisposição...</p>
             </div>
         </div>
+
         <div class="banner-movimento">
-            <img src="imagem/banner1.jpg" alt="Movimento Pele de Avelã" style="width: 100%; border-radius: 15px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <img src="imagem/banner1.jpg" alt="Banner Pele de Avelã" style="width: 100%; border-radius: 15px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
         </div>
-
-        <div id="cadastro" class="form-card">
-            <h3 style="text-align:center; color:#3d2b1f; margin-bottom:25px;">Faça parte do Movimento</h3>
-            ```
-
----
-
-### Por que ele não estava aparecendo?
-Como você mesmo notou no trecho que me enviou, o código passava direto da galeria para o formulário. Faltava essa "ponte" que chama a imagem **banner1.jpg** que está na sua pasta **imagem**.
-
-### Checklist Final:
-1.  **No GitHub:** O arquivo deve se chamar exatamente `banner1.jpg` (tudo minúsculo).
-2.  **No Código:** Certifique-se de que o caminho é `imagem/banner1.jpg`.
-3.  **Na Planilha (Candidatas):** Verifique se na Coluna F você escreveu `imagem/candidata1.jpg` (com a barra e a pasta antes).
-
-**Assim que você salvar e der o "Commit" no GitHub, o banner vai surgir imponente acima do formulário!** Conseguiu fazer essa colagem? Se preferir, posso te enviar o arquivo completo de novo já com essa alteração feita.
 
         <div id="cadastro" class="form-card">
             <h3 style="text-align:center; color:#3d2b1f; margin-bottom:25px;">Faça parte do Movimento</h3>
@@ -118,52 +101,40 @@ Como você mesmo notou no trecho que me enviou, o código passava direto da gale
             try {
                 const resposta = await fetch(urlPlanilha);
                 const texto = await resposta.text();
-                // Separa as linhas e remove a primeira (cabeçalho)
                 const linhas = texto.split(/\r?\n/).slice(1); 
                 
                 let htmlGerado = "";
 
                 linhas.forEach(linha => {
-                    // Divide por vírgula, mas respeita vírgulas dentro de aspas (se houver)
                     const col = linha.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-                    
-                    // Coluna G (índice 6) é o "SIM"
                     if (col[6] && col[6].trim().toUpperCase() === "SIM") {
                         const nome = col[0] ? col[0].trim().replace(/"/g, "") : "Candidata";
-                        const idade = col[1] ? col[1].trim() : "";
-                        const cidade = col[2] ? col[2].trim().replace(/"/g, "") : "";
-                        const perfil = col[3] ? col[3].trim().replace(/"/g, "") : "";
-                        const frase = col[4] ? col[4].trim().replace(/"/g, "") : "";
                         const foto = col[5] ? col[5].trim().replace(/"/g, "") : "";
 
                         htmlGerado += `
                             <div class="card-candidata" onclick="abrirFoto('${foto}')">
-                                <img src="${foto}" alt="${nome}" onerror="this.src='imagem/placeholder.jpg'">
+                                <img src="${foto}" alt="${nome}">
                                 <div class="info-candidata">
                                     <h3>${nome.toUpperCase()}</h3>
-                                    <span class="local-foto">📍 ${cidade} | ${idade} anos</span>
+                                    <span class="local-foto">📍 ${col[2]} | ${col[1]} anos</span>
                                     <hr class="divisor-card">
-                                    <p class="bio-modelo"><strong>Perfil:</strong> ${perfil}<br>"${frase}"</p>
+                                    <p class="bio-modelo"><strong>Perfil:</strong> ${col[3]}<br>"${col[4]}"</p>
                                 </div>
                             </div>`;
                     }
                 });
 
                 if (htmlGerado === "") {
-                    container.innerHTML = "<p style='color:#8c5a3c; padding:20px; width:100%;'>Aguardando novas seleções de talentos...</p>";
+                    container.innerHTML = "<p style='color:#8c5a3c; padding:20px; width:100%;'>Aguardando novas seleções...</p>";
                 } else {
                     container.innerHTML = htmlGerado;
                     iniciarMovimento();
                 }
-
-            } catch (e) { 
-                console.error("Erro:", e);
-                container.innerHTML = "<p style='color:red;'>Erro ao carregar dados da planilha.</p>";
-            }
+            } catch (e) { container.innerHTML = "Erro ao carregar dados."; }
         }
 
         function abrirFoto(src) {
-            if(src && src !== "") {
+            if(src) {
                 document.getElementById('foto-ampliada').src = src;
                 document.getElementById('overlay').style.display = 'flex';
             }
@@ -176,7 +147,8 @@ Como você mesmo notou no trecho que me enviou, o código passava direto da gale
             const cards = document.querySelectorAll('.card-candidata');
             let index = 0;
             if (cards.length > 1) {
-                setInterval(() => {
+                if(window.carrosselInterval) clearInterval(window.carrosselInterval);
+                window.carrosselInterval = setInterval(() => {
                     index++;
                     if (index >= cards.length) index = 0;
                     const width = cards[0].offsetWidth + 25;
@@ -184,7 +156,6 @@ Como você mesmo notou no trecho que me enviou, o código passava direto da gale
                 }, 4000);
             }
         }
-
         carregarCandidatas();
     </script>
 </body>
