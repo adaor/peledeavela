@@ -77,11 +77,13 @@
         <div id="cadastro" class="form-card">
             <h3 style="text-align:center; color:#3d2b1f; margin-bottom:25px;">Faça parte do Movimento</h3>
             <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
-                <input type="text" name="nome" class="form-control" placeholder="Seu Nome Completo" required>
-                <input type="email" name="email" class="form-control" placeholder="Seu E-mail" required>
-                <input type="text" name="cidade" class="form-control" placeholder="Cidade/Estado" required>
-                <button type="submit" class="btn-enviar">Quero Participar</button> 
-            </form>
+    <input type="hidden" name="_subject" value="Nova Inscrição: Movimento Pele de Avelã">
+    
+    <input type="text" name="nome" class="form-control" placeholder="Seu Nome Completo" required>
+    <input type="email" name="email" class="form-control" placeholder="Seu E-mail" required>
+    <input type="text" name="cidade" class="form-control" placeholder="Cidade/Estado" required>
+    <button type="submit" class="btn-enviar">Quero Participar</button> 
+</form>
         </div>
 
         <div class="interacao-secao">
