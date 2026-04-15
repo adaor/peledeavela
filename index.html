@@ -76,6 +76,78 @@
 <div class="banner-movimento">
             <img src="imagem/banner1.jpg" alt="Banner Pele de Avelã" style="width: 100%; border-radius: 15px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
         </div>
+        <div style="background: #fff5eb; padding: 25px; border-radius: 20px; margin: 30px 0; border: 2px dashed #cd7f32; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            
+            <p style="font-weight: bold; color: #cd7f32; font-size: 1.1rem; margin-top: 0; margin-bottom: 5px;">❤️ APOIE O MOVIMENTO PELE DE AVELÃ</p>
+            <p style="font-size: 0.9rem; color: #4a3728; margin-bottom: 20px; line-height: 1.4;">Seu engajamento faz a diferença! Curta e compartilhe com suas amigas.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                
+                <button onclick="curtirMovimento(this)" id="btn-curtir" 
+                        style="background: white; border: 2px solid #ff4b2b; color: #ff4b2b; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <span id="icone-coracao" style="font-size: 1.2rem;">❤️</span> <span id="texto-curtir">Curtir</span>
+                </button>
+
+                <a href="https://api.whatsapp.com/send?text=Olha que incrível o Movimento Pele de Avelã! Veja as candidatas e participe também: https://adaor.github.io/peledeavela/" target="_blank" 
+                   style="background-color: #25d366; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="18" style="filter: brightness(0) invert(1);"> Postar no Whats
+                </a>
+
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://adaor.github.io/peledeavela/" target="_blank" 
+                   style="background-color: #1877F2; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                   <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="18" style="filter: brightness(0) invert(1);"> Compartilhar
+                </a>
+            </div>
+        </div>
+
+        <script>
+            function curtirMovimento(btn) {
+                const icone = document.getElementById('icone-coracao');
+                const texto = document.getElementById('texto-curtir');
+                
+                // Impede múltiplos cliques
+                if (texto.innerHTML === "Apoiado!") return;
+
+                btn.style.backgroundColor = "#ff4b2b";
+                btn.style.color = "white";
+                btn.style.borderColor = "#e63e20";
+                icone.innerHTML = "💖";
+                texto.innerHTML = "Apoiado!";
+                
+                // Animação de pulso
+                btn.style.transform = "scale(1.1)";
+                setTimeout(() => { btn.style.transform = "scale(1)"; }, 150);
+                
+                // Opcional: Salvar no navegador que o usuário já curtiu
+                localStorage.setItem('curtiuPeleDeAvela', 'sim');
+            }
+
+            // Verificação ao carregar a página (opcional)
+            window.onload = function() {
+                if (localStorage.getItem('curtiuPeleDeAvela') === 'sim') {
+                    const btn = document.getElementById('btn-curtir');
+                    const icone = document.getElementById('icone-coracao');
+                    const texto = document.getElementById('texto-curtir');
+                    if (btn) {
+                        btn.style.backgroundColor = "#ff4b2b";
+                        btn.style.color = "white";
+                        btn.style.borderColor = "#e63e20";
+                        icone.innerHTML = "💖";
+                        texto.innerHTML = "Apoiado!";
+                    }
+                }
+            }
+        </script>
+        ```
+
+### O que mudou e por que vai funcionar:
+
+1.  **Código Unificado:** Coloquei o `<script>` logo abaixo do HTML. Isso garante que o navegador leia a função `curtirMovimento` assim que carregar os botões.
+2.  **IDs Únicos:** Adicionei IDs específicos (`btn-curtir`, `icone-coracao`, `texto-curtir`) para o JavaScript não se confundir se houver outros elementos parecidos na página.
+3.  **Adicionei Ícones:** Coloquei os logotipos brancos do WhatsApp e Facebook dentro dos botões de compartilhamento. Ficou muito mais profissional e visualmente atraente para o seu grupo de engajadores.
+4.  **Melhoria na Animação:** O script agora inclui uma verificação para não "quebrar" se a pessoa clicar várias vezes e uma lógica simples para manter o botão "Apoiado!" se a pessoa atualizar a página (usando o `localStorage` do navegador).
+
+**Faça o commit no GitHub e dê um F5 no site.** Se o coração não aparecer dessa vez, me avise que eu vou te pedir para colar o código inteiro do seu site aqui para eu achar o conflito! Mas com esse bloco unificado, a chance de dar certo é enorme.
 
         <p style="font-weight: bold; color: #8c5a3c; margin-bottom: 15px;">ACOMPANHE O MOVIMENTO:</p>
         <div style="margin: 0 0 40px 0; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
