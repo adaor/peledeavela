@@ -91,7 +91,53 @@
             </form>
         </div>
     </div>
+<div style="background: #ffffff; border: 2px solid #cd7f32; border-radius: 20px; padding: 25px; margin: 40px auto; max-width: 600px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center;">
+            <h3 style="color: #3d2b1f; margin-top: 0; font-size: 1.3rem;">🚀 Painel do Engajador</h3>
+            <p style="font-size: 0.9rem; color: #8c5a3c; margin-bottom: 20px;">Use as ferramentas abaixo para convidar mais pessoas:</p>
 
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                
+                <a href="https://api.whatsapp.com/send?text=Oi! Lembrei de você. Olha que projeto bacana de beleza e saúde que está selecionando candidatas: https://adaor.github.io/peledeavela/" target="_blank" 
+                   style="background-color: #25d366; color: white; text-decoration: none; padding: 14px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;">
+                   📢 Convidar uma Amiga (Whats)
+                </a>
+
+                <a href="https://api.whatsapp.com/send?text=Pessoal, vejam que movimento incrível está acontecendo! O Pele de Avelã une inteligência alimentar e beleza real. Confiram as candidatas: https://adaor.github.io/peledeavela/" target="_blank" 
+                   style="background-color: #128c7e; color: white; text-decoration: none; padding: 14px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;">
+                   👥 Postar nos Grupos (Whats)
+                </a>
+
+                <button onclick="copiarLinkDoSite()" style="background-color: #fdf5e6; color: #3d2b1f; border: 1px solid #cd7f32; padding: 14px; border-radius: 12px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;">
+                   🔗 Copiar Link do Site
+                </button>
+                <div id="status-copiado" style="font-size: 0.8rem; color: #25d366; display: none; font-weight: bold; margin-top: 5px;">✅ Link copiado! Pronto para colar.</div>
+
+            </div>
+        </div>
+
+        <script>
+            // Função para copiar o link sem precisar selecionar texto
+            function copiarLinkDoSite() {
+                const linkSite = "https://adaor.github.io/peledeavela/";
+                navigator.clipboard.writeText(linkSite).then(() => {
+                    const status = document.getElementById('status-copiado');
+                    status.style.display = 'block';
+                    setTimeout(() => { status.style.display = 'none'; }, 3000);
+                }).catch(err => {
+                    alert("Erro ao copiar link. Por favor, copie manualmente da barra de endereços.");
+                });
+            }
+        </script>
+        ```
+
+### O que essa alteração entrega:
+* **Praticidade:** O engajador não precisa "inventar" o que dizer. Você já deu o tom de voz ideal para ele.
+* **Velocidade:** Em 2 segundos ele compartilha com 5 grupos no WhatsApp.
+* **Confirmação:** Quando ele clica em "Copiar Link", aparece uma mensagem de "✅ Link copiado!", o que dá segurança de que a ação funcionou.
+
+Faça o teste: clique nos botões de WhatsApp e veja se a mensagem aparece certinho no seu celular. Se precisar ajustar o texto do convite, é só me avisar que eu te mostro qual parte do link alterar!
+
+Boa sorte com a atualização, **Adão**!
     <footer class="rodape">
         <p>&copy; 2026 Movimento Pele de Avelã. <br> Inteligência Alimentar na prática.</p>
     </footer>
