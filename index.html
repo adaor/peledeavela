@@ -146,14 +146,19 @@
         function fecharFoto() { document.getElementById('overlay').style.display = 'none'; }
 
         function curtirMovimento(btn) {
-            const icone = document.getElementById('icone-coracao');
-            const texto = document.getElementById('texto-curtir');
-            if (texto.innerHTML === "Apoiado!") return;
-            btn.style.backgroundColor = "#ff4b2b";
-            btn.style.color = "white";
-            icone.innerHTML = "💖";
-            texto.innerHTML = "Apoiado!";
-            localStorage.setItem('curtiuPeleDeAvela', 'sim');
+    const icone = document.getElementById('icone-coracao');
+    const texto = document.getElementById('texto-curtir');
+    
+    if (texto.innerHTML === "Apoiado!") return;
+
+    // Quando clica, ele fica com um fundo rosado suave e o coração muda
+    btn.style.backgroundColor = "#f8d7da"; 
+    btn.style.color = "#721c24";
+    icone.innerHTML = "💖";
+    texto.innerHTML = "Apoiado!";
+    
+    localStorage.setItem('curtiuPeleDeAvela', 'sim');
+}
         }
 
         function iniciarMovimento() {
