@@ -7,37 +7,23 @@
     <style>
         body { background-color: #fdf5e6; color: #4a3728; font-family: sans-serif; margin: 0; text-align: center; padding-top: 80px; }
         .container { padding: 20px; max-width: 1000px; margin: 0 auto; width: 95%; }
-        
-        /* MENU */
         .menu-navegacao { background: #3d2b1f; padding: 10px 0; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-around; align-items: center; }
         .logo-menu { color: #f4ece4; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
         .links-menu { list-style: none; display: flex; gap: 15px; margin: 0; padding: 0; }
         .links-menu a { color: #f4ece4; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
         .btn-inscreva { background: #cd7f32; padding: 6px 12px; border-radius: 20px; }
-
-        /* CARROSSEL */
-        .galeria-container { overflow: hidden; position: relative; margin: 30px 0; background: #fff; border-radius: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05); }
-        .carrossel-track { display: flex; gap: 25px; transition: transform 0.5s ease-in-out; padding: 20px; }
+        .galeria-container { overflow: hidden; position: relative; margin: 30px 0; background: #fff; border-radius: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05); min-height: 200px; }
+        .carrossel-track { display: flex; gap: 25px; transition: transform 0.5s ease-in-out; padding: 20px; width: max-content; }
         .card-candidata { min-width: 280px; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 1px solid #eee; }
         .card-candidata img { width: 100%; height: 350px; object-fit: cover; }
         .info-candidata { padding: 15px; text-align: left; }
         .info-candidata h3 { margin: 0; color: #3d2b1f; font-size: 1.1rem; }
-        .local-foto { font-size: 0.8rem; color: #8c5a3c; }
-
-        /* BLOCOS */
-        .secao-branca { background: #ffffff; border: 1px solid #eee; border-radius: 20px; padding: 25px; margin: 30px auto; max-width: 600px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        .secao-branca { background: #ffffff; border: 1px solid #eee; border-radius: 20px; padding: 25px; margin: 30px auto; max-width: 600px; }
         .btn-acao { text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; display: block; margin-bottom: 10px; color: white; border: none; cursor: pointer; width: 100%; }
-
-        /* OVERLAY */
-        .foto-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
-        .foto-overlay img { max-width: 90%; max-height: 90%; border-radius: 10px; }
         .rodape { background-color: #3d2b1f; color: #f4ece4; padding: 30px 20px; margin-top: 50px; }
     </style>
 </head>
 <body>
-
-    <div id="overlay" class="foto-overlay" onclick="fecharFoto()"><img id="foto-ampliada" src=""></div>
 
     <nav class="menu-navegacao">
         <a href="#" class="logo-menu">
@@ -55,24 +41,17 @@
         <p>Você bonita na foto!</p>
         <img src="imagem/banner1.jpg" alt="Banner" style="width: 100%; border-radius: 15px; margin: 20px 0;">
 
-        <div style="margin: 20px 0;">
-            <button onclick="curtirMovimento()" id="btn-curtir" style="background: #fff; border: 2px solid #f8d7da; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold;">
-                ❤️ <span id="texto-curtir">Apoiar o Movimento</span>
-            </button>
-        </div>
-
         <h2 id="galeria" style="color: #cd7f32;">Candidatas Selecionadas</h2>
         <div class="galeria-container">
             <div class="carrossel-track" id="carrossel-dinamico">
-                <p>Carregando fotos...</p>
+                <p style="padding: 20px;">Carregando fotos da planilha...</p>
             </div>
         </div>
 
         <div id="cadastro" class="secao-branca">
             <h3 style="color: #3d2b1f;">Faça parte do Movimento</h3>
             <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
-                <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
-                <input type="email" name="email" class="form-control" placeholder="Seu E-mail" required>
+                <input type="text" name="nome" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;" placeholder="Seu Nome" required>
                 <button type="submit" style="background:#cd7f32; color:white; border:none; padding:15px; width:100%; border-radius:50px; font-weight:bold; cursor:pointer;">Quero Participar</button> 
             </form>
         </div>
@@ -80,17 +59,12 @@
         <div class="secao-branca">
             <h3 style="color: #3d2b1f;">🚀 Painel do Engajador</h3>
             <a href="https://api.whatsapp.com/send?text=Olha que projeto bacana: https://adaor.github.io/peledeavela/" target="_blank" class="btn-acao" style="background: #25d366;">📢 Convidar Amiga</a>
-            <button onclick="copiarLinkDoSite()" class="btn-acao" style="background: #fdf5e6; color: #3d2b1f; border: 1px solid #cd7f32;">🔗 Copiar Link</button>
-            <div id="status-copiado" style="display:none; color:green; font-weight:bold;">✅ Copiado!</div>
         </div>
     </div>
 
-  <footer class="rodape">
-        <img src="imagem/logo_rodape.jpg" alt="Logo Pele de Avelã" 
-             style="height: 60px; width: auto; margin-bottom: 15px; border-radius: 5px;"
-             onerror="this.style.display='none';">
-             
-        <p>&copy; 2026 Movimento Pele de Avelã. <br> Inteligência Alimentar na prática.</p>
+    <footer class="rodape">
+        <img src="imagem/logo_rodape.jpg" alt="Logo" style="height: 50px; margin-bottom: 10px; border-radius: 5px;" onerror="this.style.display='none';">
+        <p>&copy; 2026 Movimento Pele de Avelã.</p>
     </footer>
 
     <script>
@@ -100,7 +74,7 @@
             const container = document.getElementById('carrossel-dinamico');
             try {
                 const resposta = await fetch(urlPlanilha);
-                const texto = await responseText = await resposta.text();
+                const texto = await resposta.text();
                 const linhas = texto.split(/\r?\n/).slice(1); 
                 let html = "";
 
@@ -109,29 +83,36 @@
                     if (col[6] && col[6].trim().toUpperCase() === "SIM") {
                         const nome = (col[0] || "Candidata").replace(/"/g, "");
                         const foto = (col[5] || "").replace(/"/g, "");
-                        const cidade = (col[2] || "");
-                        const frase = (col[4] || "");
-                        html += `<div class="card-candidata" onclick="abrirFoto('${foto}')"><img src="${foto}">
-                                <div class="info-candidata"><h3>${nome}</h3><span class="local-foto">📍 ${cidade}</span><p style="font-size:0.8rem;">"${frase}"</p></div></div>`;
+                        const cidade = (col[2] || "").replace(/"/g, "");
+                        const frase = (col[4] || "").replace(/"/g, "");
+                        html += `<div class="card-candidata">
+                                    <img src="${foto}" alt="${nome}">
+                                    <div class="info-candidata">
+                                        <h3>${nome}</h3>
+                                        <p style="font-size:0.8rem; color:#8c5a3c;">📍 ${cidade}</p>
+                                        <p style="font-size:0.85rem; font-style:italic;">"${frase}"</p>
+                                    </div>
+                                 </div>`;
                     }
                 });
-                container.innerHTML = html || "<p>Em breve!</p>";
+                container.innerHTML = html || "<p>Nenhuma candidata selecionada no momento.</p>";
                 if (html) iniciarCarrossel();
-            } catch (e) { container.innerHTML = "Erro ao carregar."; }
+            } catch (e) { 
+                container.innerHTML = "<p>Erro ao carregar dados. Verifique a planilha.</p>"; 
+            }
         }
-
-        function abrirFoto(src) { document.getElementById('foto-ampliada').src = src; document.getElementById('overlay').style.display = 'flex'; }
-        function fecharFoto() { document.getElementById('overlay').style.display = 'none'; }
-        function copiarLinkDoSite() { navigator.clipboard.writeText("https://adaor.github.io/peledeavela/"); document.getElementById('status-copiado').style.display='block'; }
-        function curtirMovimento() { document.getElementById('texto-curtir').innerText = "Apoiado!"; }
 
         function iniciarCarrossel() {
             const track = document.getElementById('carrossel-dinamico');
             let index = 0;
             setInterval(() => {
-                index++;
-                if (index >= track.children.length) index = 0;
-                track.style.transform = `translateX(-${index * 305}px)`;
+                const cards = track.querySelectorAll('.card-candidata');
+                if (cards.length > 0) {
+                    index++;
+                    if (index >= cards.length) index = 0;
+                    const cardWidth = cards[0].offsetWidth + 25;
+                    track.style.transform = `translateX(-${index * cardWidth}px)`;
+                }
             }, 4000);
         }
 
