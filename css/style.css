@@ -13,17 +13,17 @@
     }
     
     /* --- SEÇÃO DE TOPO (ESTRATÉGIA DE ROLAGEM) --- */
-    .topo {
-        height: 85vh; /* Ocupa 85% da tela, deixando 15% para a galeria aparecer */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        margin-top: 70px; /* Compensa a altura do menu fixo */
-        box-sizing: border-box;
-    }
-
+   .topo {
+    height: 85vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    text-align: center;      /* Garante o centro para os textos */
+    padding: 20px;
+    margin-top: 70px; 
+    box-sizing: border-box;
+}
     .banner-principal {
         max-width: 90%;
         max-height: 60%; 
